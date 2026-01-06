@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import logging
 
-from src.api import recommend_food, surprise_food   # wrapper layer
+from api import recommend_food, surprise_food   # wrapper layer
 
 # ---------------- LOGGING ----------------
 logging.basicConfig(
@@ -42,4 +42,5 @@ def recommend(req: RecommendRequest):
 @app.post("/surprise")
 def surprise(req: SurpriseRequest):
     logger.info(f"Surprise request | City='{req.city}'")
+
     return surprise_food(req.city)

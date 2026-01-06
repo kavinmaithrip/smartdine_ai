@@ -103,3 +103,4 @@ class CityReranker:
             df.sort_values("final_score", ascending=False)
               .reset_index(drop=True)
         )
+
